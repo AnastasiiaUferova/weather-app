@@ -15,3 +15,11 @@ $not-active-check:rgba(0, 0, 0, 0.16);
     font-style: normal;
     font-weight: $weight;
 }
+
+@mixin gradient-button { 
+    background: $gradient-button;
+    color: #FFFFFF;
+    @include font(600);
+    border-radius: 10px;
+    border: none;
+}

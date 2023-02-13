@@ -1,14 +1,22 @@
 import React from "react";
-import "./styles/App.css";
+import "./styles/App/App.css";
 import "@fontsource/montserrat";
 import { Images } from "./utilities/Utilities";
+import Header from "./components/Header"
+import Main from "./components/Main";
 
 function App() {
   return (
   
-  <><div style={{ width: "100px" }}></div><img src={Images["Broken-Clouds"]}></img></>
+  <>
+  <div className="App">
+    <Header/>
+    <Main />
 
- 
+    </div>
+    
+    </>
+
   )
 }
 
