@@ -1,0 +1,58 @@
+@import "../Variables/Variables.scss";
+
+
+.check-box {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 80px;
+    height: 40px;
+    background: #36208E;
+    border-radius: 50px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+label {
+	color: white;
+	z-index: 2;
+    font-family: sans-serif;
+
+}
+
+.label-F {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+}
+
+.label-C {
+	position: absolute;
+	top: 10px;
+	left: 50px;
+}
+
+input:checked[type="checkbox"] {
+    background: $active-check;
+}
+
+input[type="checkbox"]::after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked[type="checkbox"]::after {
+    left: 50%;
+}
