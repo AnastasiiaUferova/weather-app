@@ -13,20 +13,19 @@ import ShowerRainNight from "../images/Shower-rain-night.svg";
 import Snow from "../images/Snow.svg";
 import Thunderstorm from "../images/Thunderstorm.svg";
 
-
 export const Images = {
-    "Broken-Clouds": BrokenClouds,
-    "Clear-sky-night": ClearSkyNight,
-    "Clear-sky-sun": ClearSkySun,
-    "Few-clouds-day": FewCloudsDay,
-    "Few-clouds-night": FewCloudsNight,
-    "Mist": Mist,
-    "Rain-day": RainDay,
-    "Rain-night":  RainNight,
-    "Scattered-clouds-day": ScatteredCloudsDay,
-    "Scattered-clouds-nigth": ScatteredCloudsNight,
-    "Shower-rain-day": ShowerRainDay,
-    "Shower-rain-night": ShowerRainNight,
-    "Snow": Snow,
-    "Thunderstorm": Thunderstorm
-}
+  "Broken-Clouds": BrokenClouds,
+  "Clear-sky-night": ClearSkyNight,
+  "Clear-sky-sun": ClearSkySun,
+  "Few-clouds-day": FewCloudsDay,
+  "Few-clouds-night": FewCloudsNight,
+  Mist: Mist,
+  "Rain-day": RainDay,
+  "Rain-night": RainNight,
+  "Scattered-clouds-day": ScatteredCloudsDay,
+  "Scattered-clouds-nigth": ScatteredCloudsNight,
+  "Shower-rain-day": ShowerRainDay,
+  "Shower-rain-night": ShowerRainNight,
+  Snow: Snow,
+  Thunderstorm: Thunderstorm,
+};

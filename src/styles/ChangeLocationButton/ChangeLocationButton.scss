@@ -1,27 +1,26 @@
 @import "../Variables/Variables.scss";
 
-.change-location{
-    @include gradient-button;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5em 3em;
+.change-location {
+  @include gradient-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 3em;
 }
 
 .change-location::before {
+  content: url(../../images/Location.svg);
+  margin-right: 10px;
+}
+
+@media (max-width: 500px) {
+  .change-location {
+    font-size: 14px;
+    padding: 0.5em 1.8em;
+  }
+
+  .change-location::before {
     content: url(../../images/Location.svg);
-    margin-right: 10px;
+    margin-right: 5px;
+  }
 }
-
-@media (max-width:500px){
-    .change-location{
-        font-size: 14px;
-        padding: 0.5em 1.8em;
-    }
-
-    .change-location::before {
-        content: url(../../images/Location.svg);
-        margin-right: 5px;
-    }
-}
-
