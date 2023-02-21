@@ -1,0 +1,81 @@
+@import "../Variables/Variables.scss";
+
+.weather {
+    background: $gradient-card;
+    border-radius: 30px;
+    height: 450px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    color: #FFFFFF;
+    padding: 50px;
+
+
+    &__date-location {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        position: relative;
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            max-width: 70%;
+        }
+
+        &-day {
+            @include font(900);
+            margin-bottom: 20px;
+            font-size: 37px;
+        }
+
+        &-date {
+            @include font(500);
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+
+        &-location {
+            @include font(600);
+            margin-top: 10px;
+            font-size: 20px;
+
+        }
+        &-location::before {
+            content: "";
+            margin-right: 8px;
+            width: 16px;
+            height: 20px;
+            background-size: cover;
+            display:inline-block;
+            background-image: url(../../images/Location.svg);
+            
+        }
+    }
+
+    &__temp {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &-img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        &-decription {
+            @include font(500);
+            margin-bottom: 15px;
+            font-size: 25px;
+    }
+
+        &-temp {
+            @include font(500);
+            font-size: 50px;
+
+        }
+
+    }
+}

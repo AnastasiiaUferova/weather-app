@@ -43,4 +43,17 @@
     line-height: 17px;
 }
 
+@media (max-width: 480px){
+    .input__input {
+        width: 15em;
+        padding-right: 45px;
+    }
+}
 
+
+@media (max-width: 400px){
+    .input__input {
+        width: 6em;
+        padding-right: 45px;
+    }
+}

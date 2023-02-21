@@ -1,6 +1,6 @@
 import BrokenClouds from "../images/Broken-clouds.svg";
 import ClearSkyNight from "../images/Clear-sky-night.svg";
-import ClearSkySun from "../images/Clear-sky-night.svg";
+import ClearSkySun from "../images/Clear-sky-sun.svg";
 import FewCloudsDay from "../images/Few-clouds-day.svg";
 import FewCloudsNight from "../images/Few-clouds-night.svg";
 import Mist from "../images/Mist.svg";

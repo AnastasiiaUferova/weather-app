@@ -1,0 +1,7 @@
+.phrase {
+  background: url(../../images/Cover.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  padding: 50px;
+}
