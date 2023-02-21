@@ -1,9 +1,35 @@
 @import "../Variables/Variables.scss";
 
 .phrase {
-    background: url(../../images/Cover.png);
-    background-size: cover;
-    background-position: center;
-    border-radius: 30px;
-    padding: 50px;
+  background: url(../../images/Cover.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+  color: #ffff;
+
+  &__body {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 30px;
+    color: #240285;
+    font-size: 20px;
+    @include font(900);
+  }
+
+  h2 {
+    @include font(700);
+    font-size: 30px;
+    text-align: center;
+  }
+
+  button {
+    @include gradient-button;
+    padding: 1em 3em;
+  }
 }

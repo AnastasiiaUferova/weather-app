@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function DataCard() {
-  return (
-    <div>
-      Data
-    </div>
-  )
+  return <div>Data</div>;
 }

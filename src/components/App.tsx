@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/App/App.css"
+import "../styles/App/App.css";
 import "@fontsource/montserrat";
 import { Images } from "../utilities/Utilities";
 import Header from "./Header";

@@ -1,59 +1,57 @@
 @import "../Variables/Variables.scss";
 
-
 .input__container-form {
-    height: auto;
-    position: relative;
+  height: auto;
+  position: relative;
 }
 
 .input__button {
-    width: 34px;
-    height: 34px;
-    background-image: url(../../images/searchIcon.svg);
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 7px;
-    right: 6px;
+  width: 34px;
+  height: 34px;
+  background-image: url(../../images/searchIcon.svg);
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 7px;
+  right: 6px;
 }
 
 .input__button:hover {
-    cursor: pointer;
-    opacity: 0.6;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .input__input {
-    background: #f4f4f4;
-    border-radius: 40px;
-    width: 20em;
-    height: 46px;
-    border: none;
-    color: black;
-    @include font (700);
-    font-size: 13px;
-    line-height: 17px;
-    padding-right: 0;
-    padding-left: 22px;
+  background: #f4f4f4;
+  border-radius: 40px;
+  width: 20em;
+  height: 46px;
+  border: none;
+  color: black;
+  @include font(700);
+  font-size: 13px;
+  line-height: 17px;
+  padding-right: 0;
+  padding-left: 22px;
 }
 
 .input__input::placeholder {
-    color: #a0a0a0;
-    @include font (400);
-    font-size: 13px;
-    line-height: 17px;
+  color: #a0a0a0;
+  @include font(400);
+  font-size: 13px;
+  line-height: 17px;
 }
 
-@media (max-width: 480px){
-    .input__input {
-        width: 15em;
-        padding-right: 45px;
-    }
+@media (max-width: 480px) {
+  .input__input {
+    width: 15em;
+    padding-right: 45px;
+  }
 }
 
-
-@media (max-width: 400px){
-    .input__input {
-        width: 6em;
-        padding-right: 45px;
-    }
+@media (max-width: 400px) {
+  .input__input {
+    width: 6em;
+    padding-right: 45px;
+  }
 }

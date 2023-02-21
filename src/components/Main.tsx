@@ -5,10 +5,11 @@ import PhraseCard from "./PhraseCard";
 import WeatherCard from "./WeatherCard";
 
 export default function Main() {
-  return <div className="main">
-    <WeatherCard />
-    <PhraseCard />
-    <WeatherCard />
-  
-  </div>;
+  return (
+    <div className="main">
+      <WeatherCard />
+      <PhraseCard />
+      <WeatherCard />
+    </div>
+  );
 }
