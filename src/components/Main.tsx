@@ -8,8 +8,8 @@ export default function Main() {
   return (
     <div className="main">
       <WeatherCard />
-      <PhraseCard />
       <WeatherCard />
+      <PhraseCard />
     </div>
   );
 }

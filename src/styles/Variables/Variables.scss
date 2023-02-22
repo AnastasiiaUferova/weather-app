@@ -29,3 +29,13 @@ $active-check: #a090e0fc;
   border-radius: 10px;
   border: none;
 }
+
+@mixin card {
+  padding: 50px;
+  height: 450px;
+  border-radius: 30px;
+
+  @media (max-width: 700px) {
+    padding: 30px;
+  }
+}

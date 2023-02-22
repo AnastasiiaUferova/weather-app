@@ -7,7 +7,6 @@ import SwitchButton from "./SwitchButton";
 export default function Header() {
   return (
     <div className="header">
-      <LocationInput />
       <ChangeLocationButton />
       <SwitchButton />
     </div>

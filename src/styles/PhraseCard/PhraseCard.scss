@@ -4,14 +4,14 @@
   background: url(../../images/Cover.png);
   background-size: cover;
   background-position: center;
-  border-radius: 30px;
-  padding: 50px;
+  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 50px;
   color: #ffff;
+  @include card;
 
   &__body {
     background: rgba(255, 255, 255, 0.7);
