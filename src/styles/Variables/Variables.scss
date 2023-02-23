@@ -31,11 +31,9 @@ $active-check: #a090e0fc;
 }
 
 @mixin card {
-  padding: 50px;
+  padding: 30px;
   height: 450px;
   border-radius: 30px;
 
-  @media (max-width: 700px) {
-    padding: 30px;
-  }
+
 }

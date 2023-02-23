@@ -1,0 +1,39 @@
+.data {
+  padding: 30px;
+  height: 450px;
+  border-radius: 30px;
+  background: #122541;
+  display: flex;
+  flex-direction: column;
+}
+
+.data-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.data__info-body {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.data__info-body_name {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+}
+.data__info-body_number {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media (max-width: 430px) {
+  .data-info {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

@@ -1,0 +1,29 @@
+.time-weather-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  background: #4e78ae;
+  border-radius: 10px;
+  padding: 20px;
+  gap: 10px;
+}
+.time-weather-card__time {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+}
+.time-weather-card__temp {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+}
+
+.time-weather-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}

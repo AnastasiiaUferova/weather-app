@@ -9,6 +9,7 @@ import WeatherCard from "./WeatherCard";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import DataCard from './DataCard';
 
 export default function SwiperElement() {
 
@@ -42,9 +43,9 @@ export default function SwiperElement() {
       keyboard={true}
       pagination={{ clickable: true }} 
     >
-      <SwiperSlide><WeatherCard  /></SwiperSlide>
-      <SwiperSlide><WeatherCard/></SwiperSlide>
-      <SwiperSlide><PhraseCard /></SwiperSlide>
+      <SwiperSlide><WeatherCard /></SwiperSlide>
+      <SwiperSlide><DataCard/></SwiperSlide>
+      <SwiperSlide><PhraseCard/></SwiperSlide>
     </Swiper>
     </>
   )

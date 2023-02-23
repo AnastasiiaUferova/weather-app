@@ -1,0 +1,32 @@
+@import "../Variables/Variables.scss";
+
+
+.time-weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    color: #FFFF;
+    background: $active-weather;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 10px;
+
+
+    &__time {
+        @include font(400)
+    }
+
+    &__temp{
+        @include font(900)
+    }
+}
+
+
+.time-weather-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}

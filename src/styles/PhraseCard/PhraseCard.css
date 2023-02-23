@@ -9,14 +9,9 @@
   flex-direction: column;
   gap: 50px;
   color: white;
-  padding: 50px;
+  padding: 30px;
   height: 450px;
   border-radius: 30px;
-}
-@media (max-width: 700px) {
-  .phrase {
-    padding: 30px;
-  }
 }
 .phrase__body {
   background: rgba(255, 255, 255, 0.7);
