@@ -1,0 +1,23 @@
+.sunrise-card {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.sunrise-card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.sunrise-card__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+}
+.sunrise-card__time {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 12px;
+}

@@ -16,7 +16,7 @@ export const TimeWeatherCard: FC<TimeWeatherCardType> = ({url, timeNumber, temp,
             <p className='time-weather-card__time'>{timeNumber}{timeSign}</p>
             <p className='time-weather-card__temp'>{temp}C°</p>
         </div>
-      )
+)
 }
   
 
