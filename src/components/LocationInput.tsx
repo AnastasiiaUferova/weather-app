@@ -1,20 +1,33 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import "../styles/LocationInput/LocationInput.css";
 
-export default function LocationInput() {
+type LocationInputType = {
+  onChageQuery: (arg: string) => void;
+};
 
-  const [country, setCountry] = useState<string>('')
+export const LocationInput: FC<LocationInputType> = ({ onChageQuery }) => {
+  const [country, setCountry] = useState<string>("");
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement> ) => {
-      setCountry(event.target.value)
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setCountry(event.target.value);
+  };
+
+  function handleSubmit(event: { preventDefault: () => void }) {
+    event.preventDefault();
+    onChageQuery(country);
   }
-  console.log(country)
+  console.log(country);
   return (
     <div className="input">
-      <form className="input__container-form">
-        <input onChange={handleChange} value={country} className="input__input" type="text"></input>
+      <form className="input__container-form" onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          value={country}
+          className="input__input"
+          type="text"
+        ></input>
         <button className="input__button" type="submit"></button>
       </form>
     </div>
   );
-}
+};

@@ -2,7 +2,11 @@
   padding: 30px;
   height: 450px;
   border-radius: 30px;
-  background: linear-gradient(152.19deg, rgba(114, 144, 188, 0.44) -0.04%, rgba(6, 59, 247, 0.9) 100%);
+  background: linear-gradient(
+    152.19deg,
+    rgba(114, 144, 188, 0.44) -0.04%,
+    rgba(6, 59, 247, 0.9) 100%
+  );
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   color: #ffffff;

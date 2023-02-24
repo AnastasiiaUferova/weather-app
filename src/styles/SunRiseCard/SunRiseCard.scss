@@ -1,29 +1,24 @@
 @import "../Variables/Variables.scss";
 
 .sunrise-card {
-    color: #FFFF;
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &-container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
 
+  &__title {
+    @include font(900);
+  }
 
-    &-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
-
-    &__title {
-        @include font(900);
-    }
-
-    &__time {
-        @include font(400);
-        margin-bottom: 12px;
-    }
-
+  &__time {
+    @include font(400);
+    margin-bottom: 12px;
+  }
 }
-
-
-

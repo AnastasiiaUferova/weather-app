@@ -1,38 +1,37 @@
 @import "../Variables/Variables.scss";
 
 .data {
-    @include card;
-    background: $blue-card;
-    display: flex;
-    flex-direction: column;
+  @include card;
+  background: $blue-card;
+  display: flex;
+  flex-direction: column;
 }
 
 .data-info {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .data__info-body {
-    display: flex;
-    justify-content: space-between;
-    color: #FFFF;
+  display: flex;
+  justify-content: space-between;
+  color: #ffff;
 
-    &_name {
-        @include font(900);
-    }
+  &_name {
+    @include font(900);
+  }
 
-    &_number {
-        @include font(400);
-    }
+  &_number {
+    @include font(400);
+  }
 }
 
-@media(max-width: 430px){
-    .data-info {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+@media (max-width: 430px) {
+  .data-info {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
-

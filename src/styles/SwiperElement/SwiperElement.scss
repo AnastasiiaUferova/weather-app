@@ -1,13 +1,16 @@
 .swiper-button-next {
-    color: #36208e !important;
+  color: #36208e !important;
 }
 
-.swiper-button-prev, .swiper-pagination-bullet-active { @extend .swiper-button-next}
+.swiper-button-prev,
+.swiper-pagination-bullet-active {
+  @extend .swiper-button-next;
+}
 
 .swiper-pagination-bullet-active {
-    background:  #36208e !important;
+  background: #36208e !important;
 }
 
 .swiper-pagination {
-    position: static !important;;
+  position: static !important;
 }
