@@ -10,7 +10,8 @@ import { useDebouncedCallback } from "use-debounce";
 
 function App() {
 
-  const [ showMain, setShowMain] = useState(true)
+  const [ showMain, setShowMain] = useState<boolean | null>(true)
+
 
   const Resize = useDebouncedCallback(
     () => {
@@ -22,7 +23,6 @@ function App() {
 )
 
     useEffect(() => {
-    
         window.addEventListener('resize', Resize)
         return () => {
             window.removeEventListener('resize', Resize);

@@ -14,7 +14,7 @@ import DataCard from './DataCard';
 export default function SwiperElement() {
 
 
-  const [ slidesPerView, setSlidesPerView] = useState(2)
+  const [ slidesPerView, setSlidesPerView] = useState<number>(2)
 
   const Resize = useDebouncedCallback(
     () => {

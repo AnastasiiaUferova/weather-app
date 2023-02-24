@@ -1,10 +1,19 @@
-import React from "react";
+import React, { FC } from "react";
 import "../styles/ChangeLocationButton/ChangeLocationButton.css";
 
-export default function ChangeLocationButton() {
+
+type ChangeLocationType = {
+  ChangeLocationFunction: () => void;
+}
+export const ChangeLocationButton:FC<ChangeLocationType> = ({ChangeLocationFunction}) => {
+
+  function onChangeLocation() {
+    ChangeLocationFunction()
+  }
+
   return (
     <>
-      <button className="change-location">Change Location</button>
+      <button onClick={onChangeLocation}className="change-location">Change Location</button>
     </>
   );
 }

@@ -6,7 +6,7 @@ type TimeWeatherCardType = {
     timeNumber: number;
     timeSign: string;
     temp: number;
-  }
+}
 
 
 export const TimeWeatherCard: FC<TimeWeatherCardType> = ({url, timeNumber, temp, timeSign}) => {
@@ -18,5 +18,5 @@ export const TimeWeatherCard: FC<TimeWeatherCardType> = ({url, timeNumber, temp,
         </div>
 )
 }
-  
+
 
