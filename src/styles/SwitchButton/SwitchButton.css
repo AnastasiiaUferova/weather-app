@@ -4,7 +4,7 @@
   margin-top: 3px;
 }
 
-input[type="checkbox"] {
+input[type=checkbox] {
   position: relative;
   appearance: none;
   width: 80px;
@@ -33,11 +33,11 @@ label {
   left: 50px;
 }
 
-input:checked[type="checkbox"] {
+input:checked[type=checkbox] {
   background: rgba(160, 144, 224, 0.9882352941);
 }
 
-input[type="checkbox"]::after {
+input[type=checkbox]::after {
   position: absolute;
   content: "";
   width: 40px;
@@ -49,6 +49,6 @@ input[type="checkbox"]::after {
   transition: 0.4s;
 }
 
-input:checked[type="checkbox"]::after {
+input:checked[type=checkbox]::after {
   left: 50%;
 }
