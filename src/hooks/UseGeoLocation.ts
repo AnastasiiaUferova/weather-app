@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useFetch from '../api/useFetch';
+import axios from "axios";
 
 export default function UseGeoLocation() {
     const[geoLoading, setGeoLoading] = useState<boolean | null> (true);
@@ -20,23 +21,23 @@ export default function UseGeoLocation() {
             console.warn(`ERROR(${err.code}): ${err.message}`);
     }
 
-        navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+    navigator.geolocation.getCurrentPosition(successHandler, errorHandler)
 
         
     }, [])
 
-    if (geoLoading === false) {
-
-    }
-
-
-    const { data:dataCity, loading:loadingCity, error:errorCity } = useFetch(
-        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${geoData.latitude}&longitude=${geoData.longitude}
-        &localityLanguage=en`
-      );
-
-      console.log(dataCity)
-
-    return {geoLoading, geoError, dataCity}
+    return {geoLoading, geoError, geoData}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
