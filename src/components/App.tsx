@@ -3,7 +3,7 @@ import "../styles/App/App.css";
 import "@fontsource/montserrat";
 import { Images } from "../utilities/Utilities";
 import { Header } from "./Header";
-import Main from "./Main";
+import { Main } from "./Main";
 import Swiper from "./SwiperElement";
 import useFetch from "../api/useFetch";
 import UseResize from "../hooks/UseResize";
@@ -14,20 +14,9 @@ function App() {
   const [searchQuery, setSearchQuery] = useState<string | null>("");
   const [city, setCity] = useState<string | null>("");
   const [isSearching, setIsSearching] = useState<boolean | null>(false);
-
- 
   const { showMain } = UseResize(1100);
 
-  const { data:searchData, loading, error, refetch } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
-  ); // Fetch data after changing the city
-
-  const { data:cityData, refetch:cityRefetch } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
-  ); //
-
-  const {geoLoading, geoError, geoData } = UseGeoLocation()
-  const [mainData, setMainData] = useState<any>(cityData);
+  const {geoLoading, geoData } = UseGeoLocation()
 
 
 useEffect(() => {
@@ -40,7 +29,7 @@ useEffect(() => {
         setIsSearching(false)
         setCity(res.data.city);
         cityRefetch()
-        setMainData(cityData)
+        setMainData({...mainData,...cityData})
       })
       .catch((err) => {
         console.log(err);
@@ -53,24 +42,30 @@ useEffect(() => {
   function handleChangeQuery(item: string) {
     setSearchQuery(item);
     refetch();
-    setMainData(searchData)
+    setMainData({...mainData,...searchData})
     setIsSearching(true)
   }
+  const [mainData, setMainData] = useState<any>(null);
+  const { data:searchData, loading, error, refetch } = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
+  ); // Fetch data after changing the city
 
- 
+  const { data:cityData, refetch:cityRefetch } = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
+  ); //
+  console.log(mainData)
 
-  //console.log(searchData)
-  console.log(cityData)
+  let data = isSearching ? searchData : cityData;
+
+
 
   return (
     <>
       <div className="App">
         <Header onChageQuery={handleChangeQuery} />
-        {showMain ? <Main /> : <Swiper />}
+        {showMain ? <Main city={data?.name} temp={data?.main.temp}/> : <Swiper />}
       </div>
-      <div style={{width:"400px", height:"400px",background: "red", color: "white"}}>
-{isSearching ? searchData?.main.temp : cityData?.main.temp }
-</div>
+     
     </>
   );
 }
@@ -88,7 +83,9 @@ export default App;
          if (loading) return <h1>LOADING...</h1>;
   if (error) console.log(error);
         
-        
+         <div style={{width:"400px", height:"400px",background: "red", color: "white"}}>
+{data?.main.temp}
+</div>
         
         
         */

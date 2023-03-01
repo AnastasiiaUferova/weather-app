@@ -3,7 +3,7 @@ import "../styles/SwiperElement/SwiperElement.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Pagination } from "swiper";
 import PhraseCard from "./PhraseCard";
-import WeatherCard from "./WeatherCard";
+import { WeatherCard } from "./WeatherCard";
 import UseResize from "../hooks/UseResize";
 
 import "swiper/css";
@@ -27,7 +27,7 @@ export default function SwiperElement() {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <WeatherCard />
+         
         </SwiperSlide>
         <SwiperSlide>
           <DataCard />

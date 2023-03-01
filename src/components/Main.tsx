@@ -1,13 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import "../styles/Main/Main.css";
 import DataCard from "./DataCard";
 import PhraseCard from "./PhraseCard";
-import WeatherCard from "./WeatherCard";
+import { WeatherCard } from "./WeatherCard";
 
-export default function Main() {
+
+type WeatherCardType = {
+  city: string;
+};
+
+export const Main:FC<WeatherCardType> = ({city}) => {
   return (
     <div className="main">
-      <WeatherCard />
+      <WeatherCard city={city}/>
       <DataCard />
       <PhraseCard />
     </div>
