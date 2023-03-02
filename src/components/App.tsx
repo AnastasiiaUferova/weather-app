@@ -8,56 +8,44 @@ import Swiper from "./SwiperElement";
 import useFetch from "../api/useFetch";
 import UseResize from "../hooks/UseResize";
 import UseGeoLocation from "../hooks/UseGeoLocation";
-import axios from "axios";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string | null>("");
-  const [city, setCity] = useState<string | null>("");
+  //const [city, setCity] = useState<string | null>("");
   const [isSearching, setIsSearching] = useState<boolean | null>(false);
   const { showMain } = UseResize(1100);
-
-  const {geoLoading, geoData } = UseGeoLocation()
-
-
-useEffect(() => {
-    if (!geoLoading) {
-      cityRefetch()
-      axios
-      .get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${geoData.latitude}&longitude=${geoData.longitude}
-      &localityLanguage=en`) //find out the city by coordinates 
-      .then((res) => {
-        setIsSearching(false)
-        setCity(res.data.city);
-        cityRefetch()
-        setMainData({...mainData,...cityData})
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    }
   
-  }, [geoLoading]);
 
+  const { city, loaded } = UseGeoLocation()
 
-  function handleChangeQuery(item: string) {
-    setSearchQuery(item);
-    refetch();
-    setMainData({...mainData,...searchData})
-    setIsSearching(true)
-  }
-  const [mainData, setMainData] = useState<any>(null);
-  const { data:searchData, loading, error, refetch } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
-  ); // Fetch data after changing the city
 
   const { data:cityData, refetch:cityRefetch } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
-  ); //
-  console.log(mainData)
+  ); // fetch initial data
 
-  let data = isSearching ? searchData : cityData;
+  const { data:searchData, refetch} = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
+  ); // Fetch data after changing the city
+
+useEffect(() => {
+  if (loaded) {
+    cityRefetch() 
+  }
+
+}, [loaded]);
 
 
+function handleChangeQuery(item: string) {
+  setSearchQuery(item);
+  refetch()
+  setIsSearching(true)
+
+}
+
+let data = isSearching ? searchData: cityData;
+console.log(searchData)
+
+console.log(isSearching)
 
   return (
     <>
@@ -65,7 +53,6 @@ useEffect(() => {
         <Header onChageQuery={handleChangeQuery} />
         {showMain ? <Main city={data?.name} temp={data?.main.temp}/> : <Swiper />}
       </div>
-     
     </>
   );
 }

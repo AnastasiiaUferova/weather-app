@@ -7,12 +7,13 @@ import { WeatherCard } from "./WeatherCard";
 
 type WeatherCardType = {
   city: string;
+  temp: number;
 };
 
-export const Main:FC<WeatherCardType> = ({city}) => {
+export const Main:FC<WeatherCardType> = ({city, temp}) => {
   return (
     <div className="main">
-      <WeatherCard city={city}/>
+      <WeatherCard city={city} temp={temp}/>
       <DataCard />
       <PhraseCard />
     </div>
