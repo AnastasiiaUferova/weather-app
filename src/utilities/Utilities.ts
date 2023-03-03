@@ -29,3 +29,21 @@ export const Images = {
   Snow: Snow,
   Thunderstorm: Thunderstorm,
 };
+
+const weekday = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+const date = new Date();
+export const weekDay = weekday[date.getDay()];
+export const fullDate = date.toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});

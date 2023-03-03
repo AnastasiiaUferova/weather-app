@@ -8,59 +8,74 @@ import Swiper from "./SwiperElement";
 import useFetch from "../api/useFetch";
 import UseResize from "../hooks/UseResize";
 import UseGeoLocation from "../hooks/UseGeoLocation";
+import axios from "axios";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string | null>("");
-  //const [city, setCity] = useState<string | null>("");
+  const [city, setCity] = useState<string | null>("");
   const [isSearching, setIsSearching] = useState<boolean | null>(false);
+
   const { showMain } = UseResize(1100);
-  
 
-  const { city, loaded } = UseGeoLocation()
-
-
-  const { data:cityData, refetch:cityRefetch } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
-  ); // fetch initial data
-
-  const { data:searchData, refetch} = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
+  const {
+    data: searchData,
+    loading,
+    error,
+    refetch,
+  } = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`,
+    searchQuery
   ); // Fetch data after changing the city
 
-useEffect(() => {
-  if (loaded) {
-    cityRefetch() 
+  const { data: cityData, refetch: cityRefetch } = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`,
+    city
+  ); //
+
+  const { geoLoading, geoError, geoData } = UseGeoLocation();
+
+  useEffect(() => {
+    if (!geoLoading) {
+      cityRefetch();
+      axios
+        .get(
+          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${geoData.latitude}&longitude=${geoData.longitude}
+      &localityLanguage=en`
+        ) //find out the city by coordinates
+        .then((res) => {
+          setIsSearching(false);
+          setCity(res.data.city);
+          cityRefetch();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [geoLoading]);
+
+  function handleChangeQuery(item: string) {
+    setSearchQuery(item);
+    refetch();
+    setIsSearching(true);
   }
 
-}, [loaded]);
-
-
-function handleChangeQuery(item: string) {
-  setSearchQuery(item);
-  refetch()
-  setIsSearching(true)
-
-}
-
-let data = isSearching ? searchData: cityData;
-console.log(searchData)
-
-console.log(isSearching)
+  let data = isSearching ? searchData : cityData;
 
   return (
     <>
       <div className="App">
         <Header onChageQuery={handleChangeQuery} />
-        {showMain ? <Main city={data?.name} temp={data?.main.temp}/> : <Swiper />}
+        {showMain ? (
+          <Main city={data?.name} temp={data?.main.temp} />
+        ) : (
+          <Swiper />
+        )}
       </div>
     </>
   );
 }
 
 export default App;
-
-
-
 
 /*  setMainData(mainData => ({
           ...mainData,
