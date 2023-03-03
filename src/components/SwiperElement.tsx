@@ -14,8 +14,6 @@ import DataCard from "./DataCard";
 export default function SwiperElement() {
   const { slidesPerView } = UseResize(700);
 
-  console.log(slidesPerView);
-
   return (
     <>
       <Swiper
@@ -26,9 +24,7 @@ export default function SwiperElement() {
         keyboard={true}
         pagination={{ clickable: true }}
       >
-        <SwiperSlide>
-         
-        </SwiperSlide>
+        <SwiperSlide></SwiperSlide>
         <SwiperSlide>
           <DataCard />
         </SwiperSlide>

@@ -16,7 +16,7 @@ export const LocationInput: FC<LocationInputType> = ({ onChageQuery }) => {
     event.preventDefault();
     onChageQuery(country);
   }
-  console.log(country);
+
   return (
     <div className="input">
       <form className="input__container-form" onSubmit={handleSubmit}>

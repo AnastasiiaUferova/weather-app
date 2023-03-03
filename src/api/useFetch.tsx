@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function useFetch(url: string, city: any): any {
+export default function useFetch(url: string): any {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean | null>(false);
   const [error, setError] = useState<any>(null);
@@ -17,7 +17,7 @@ export default function useFetch(url: string, city: any): any {
         setError(err);
       })
       .finally(() => setLoading(false));
-  }, [url, city]);
+  }, [url]);
 
   const refetch = () => {
     setLoading(true);
