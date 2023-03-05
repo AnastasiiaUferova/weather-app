@@ -65,6 +65,7 @@ function App() {
     setSearchQuery(item);
     refetch();
     setIsSearching(true);
+    console.log(data);
   }
 
   let data = isSearching ? searchData : cityData;
@@ -74,7 +75,12 @@ function App() {
       <div className="App">
         <Header onChageQuery={handleChangeQuery} />
         {showMain ? (
-          <Main city={data?.name} temp={data?.main.temp} />
+          <Main
+            city={data?.name}
+            temp={data?.main.temp}
+            details={data?.weather[0].main}
+            timezone={data?.timezone}
+          />
         ) : (
           <Swiper />
         )}
@@ -84,3 +90,44 @@ function App() {
 }
 
 export default App;
+
+/*  setMainData(mainData => ({
+          ...mainData,
+          ...cityData
+        }));
+        
+         if (loading) return <h1>LOADING...</h1>;
+  if (error) console.log(error);
+        
+         <div style={{width:"400px", height:"400px",background: "red", color: "white"}}>
+{data?.main.temp}
+</div>
+
+
+
+
+
+
+
+
+ useEffect(() => {
+    if (!geoLoading) {
+      cityRefetch();
+      axios
+        .get(
+          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${geoData.latitude}&longitude=${geoData.longitude}
+      &localityLanguage=en`
+        ) //find out the city by coordinates
+        .then((res) => {
+          setIsSearching(false);
+          setCity(res.data.city);
+          cityRefetch();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [geoLoading]);
+        
+        
+        */

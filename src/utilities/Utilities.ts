@@ -12,6 +12,7 @@ import ShowerRainDay from "../images/Shower-rain-day.svg";
 import ShowerRainNight from "../images/Shower-rain-night.svg";
 import Snow from "../images/Snow.svg";
 import Thunderstorm from "../images/Thunderstorm.svg";
+import { WeatherIcons } from "../types/types";
 
 export const Images = {
   "Broken-Clouds": BrokenClouds,
@@ -28,6 +29,42 @@ export const Images = {
   "Shower-rain-night": ShowerRainNight,
   Snow: Snow,
   Thunderstorm: Thunderstorm,
+};
+
+export const Icons: WeatherIcons = {
+  Thunderstorm: Images["Thunderstorm"],
+  Snow: Images["Snow"],
+  Clouds: Images["Scattered-clouds-day"],
+  Clear: Images["Clear-sky-sun"],
+  Mist: Images["Mist"],
+  Smoke: Images["Mist"],
+  Haze: Images["Mist"],
+  Fog: Images["Mist"],
+  Sand: Images["Mist"],
+  Dust: Images["Mist"],
+  Ash: Images["Mist"],
+  Squall: Images["Mist"],
+  Tornado: Images["Mist"],
+  Rain: Images["Rain-day"],
+  Drizzle: Images["Shower-rain-day"],
+};
+
+export const NightIcons: WeatherIcons = {
+  Thunderstorm: Images["Thunderstorm"],
+  Snow: Images["Snow"],
+  Clouds: Images["Scattered-clouds-nigth"],
+  Clear: Images["Clear-sky-night"],
+  Mist: Images["Mist"],
+  Smoke: Images["Mist"],
+  Haze: Images["Mist"],
+  Fog: Images["Mist"],
+  Sand: Images["Mist"],
+  Dust: Images["Mist"],
+  Ash: Images["Mist"],
+  Squall: Images["Mist"],
+  Tornado: Images["Mist"],
+  Rain: Images["Rain-night"],
+  Drizzle: Images["Shower-rain-night"],
 };
 
 const weekday = [
