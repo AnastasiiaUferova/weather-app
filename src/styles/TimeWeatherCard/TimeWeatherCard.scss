@@ -43,11 +43,19 @@
     gap: 5px;
     font-size: 20px;
   }
+
+  .time-weather-card-container {
+    grid-template-columns: repeat(4, 100px);
+  }
 }
 
 @media (max-width: 550px) {
   .time-weather-card {
     padding: 20px;
+  }
+
+  .time-weather-card-container {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "../styles/SwiperElement/SwiperElement.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Pagination } from "swiper";
@@ -10,8 +10,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import DataCard from "./DataCard";
+import { WeatherCardType } from "../types/types";
 
-export default function SwiperElement() {
+export const SwiperElement: FC<WeatherCardType> = ({
+  city,
+  temp,
+  details,
+  timezone,
+}) => {
   const { slidesPerView } = UseResize(700);
 
   return (
@@ -24,7 +30,14 @@ export default function SwiperElement() {
         keyboard={true}
         pagination={{ clickable: true }}
       >
-        <SwiperSlide></SwiperSlide>
+        <SwiperSlide>
+          <WeatherCard
+            city={city}
+            temp={temp}
+            details={details}
+            timezone={timezone}
+          />
+        </SwiperSlide>
         <SwiperSlide>
           <DataCard />
         </SwiperSlide>
@@ -34,4 +47,4 @@ export default function SwiperElement() {
       </Swiper>
     </>
   );
-}
+};

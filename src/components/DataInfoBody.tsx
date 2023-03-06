@@ -3,7 +3,7 @@ import "../styles/DataCard/DataCard.css";
 
 type DataInfoType = {
   name: string;
-  number: number;
+  number?: number;
   sign: string;
 };
 

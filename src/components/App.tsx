@@ -4,11 +4,11 @@ import "@fontsource/montserrat";
 import { Images } from "../utilities/Utilities";
 import { Header } from "./Header";
 import { Main } from "./Main";
-import Swiper from "./SwiperElement";
 import useFetch from "../api/useFetch";
 import UseResize from "../hooks/UseResize";
 import UseGeoLocation from "../hooks/UseGeoLocation";
 import axios from "axios";
+import { SwiperElement } from "./SwiperElement";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string | null>("");
@@ -29,7 +29,7 @@ function App() {
       console.log(error);
     }
   };
-
+  // http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat={lat}&lon={lon}&appid={API key} air pollution
   useEffect(() => {
     getLocationData().then(() => {
       axios
@@ -82,7 +82,12 @@ function App() {
             timezone={data?.timezone}
           />
         ) : (
-          <Swiper />
+          <SwiperElement
+            city={data?.name}
+            temp={data?.main.temp}
+            details={data?.weather[0].main}
+            timezone={data?.timezone}
+          />
         )}
       </div>
     </>
