@@ -70,30 +70,27 @@ function App() {
 
   let data = isSearching ? searchData : cityData;
 
+  const commonProps = {
+    city: data?.name,
+    temp: data?.main.temp,
+    details: data?.weather[0].main,
+    timezone: data?.timezone,
+    description: data?.weather[0].description,
+    humidity: data?.main.humidity,
+    max: data?.main.temp_max,
+    min: data?.main.temp_min,
+    sunset: data?.sys.sunset,
+    sunrise: data?.sys.sunrise,
+  };
+
   return (
     <>
       <div className="App">
         <Header onChageQuery={handleChangeQuery} />
         {showMain ? (
-          <Main
-            city={data?.name}
-            temp={data?.main.temp}
-            details={data?.weather[0].main}
-            timezone={data?.timezone}
-            description={data?.weather[0].description}
-            humidity={data?.main.humidity}
-            max={data?.main.temp_max}
-            min={data?.main.temp_min}
-            sunset={data?.sys.sunset}
-            sunrise={data?.sys.sunrise}
-          />
+          <Main {...commonProps} />
         ) : (
-          <SwiperElement
-            city={data?.name}
-            temp={data?.main.temp}
-            details={data?.weather[0].main}
-            timezone={data?.timezone}
-          />
+          <SwiperElement {...commonProps} />
         )}
       </div>
     </>
@@ -140,5 +137,7 @@ export default App;
     }
   }, [geoLoading]);
         
+
+  const API_URL = "https://api.openweathermap.org/data/2.5/weather";
         
         */

@@ -10,13 +10,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { DataCard } from "./DataCard";
-import { WeatherCardType } from "../types/types";
+import { GeneralCardType } from "../types/types";
 
-export const SwiperElement: FC<WeatherCardType> = ({
+export const SwiperElement: FC<GeneralCardType> = ({
   city,
   temp,
   details,
   timezone,
+  description,
+  humidity,
+  min,
+  max,
+  sunrise,
+  sunset,
 }) => {
   const { slidesPerView } = UseResize(700);
 
@@ -38,7 +44,16 @@ export const SwiperElement: FC<WeatherCardType> = ({
             timezone={timezone}
           />
         </SwiperSlide>
-        <SwiperSlide></SwiperSlide>
+        <SwiperSlide>
+          <DataCard
+            min={min}
+            max={max}
+            sunset={sunset}
+            sunrise={sunrise}
+            description={description}
+            humidity={humidity}
+          />
+        </SwiperSlide>
         <SwiperSlide>
           <PhraseCard />
         </SwiperSlide>
