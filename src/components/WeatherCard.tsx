@@ -36,5 +36,3 @@ export const WeatherCard: FC<WeatherCardType> = ({
     </div>
   );
 };
-
-//src={Images["Clear-sky-sun"]}

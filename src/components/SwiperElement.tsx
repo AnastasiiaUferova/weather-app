@@ -9,7 +9,7 @@ import UseResize from "../hooks/UseResize";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import DataCard from "./DataCard";
+import { DataCard } from "./DataCard";
 import { WeatherCardType } from "../types/types";
 
 export const SwiperElement: FC<WeatherCardType> = ({
@@ -38,9 +38,7 @@ export const SwiperElement: FC<WeatherCardType> = ({
             timezone={timezone}
           />
         </SwiperSlide>
-        <SwiperSlide>
-          <DataCard />
-        </SwiperSlide>
+        <SwiperSlide></SwiperSlide>
         <SwiperSlide>
           <PhraseCard />
         </SwiperSlide>

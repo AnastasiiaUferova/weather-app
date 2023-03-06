@@ -80,6 +80,12 @@ function App() {
             temp={data?.main.temp}
             details={data?.weather[0].main}
             timezone={data?.timezone}
+            description={data?.weather[0].description}
+            humidity={data?.main.humidity}
+            max={data?.main.temp_max}
+            min={data?.main.temp_min}
+            sunset={data?.sys.sunset}
+            sunrise={data?.sys.sunrise}
           />
         ) : (
           <SwiperElement
