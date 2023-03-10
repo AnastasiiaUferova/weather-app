@@ -19,6 +19,7 @@ export type WeatherCardType = {
 };
 
 export type DataCardType = {
+  timezone: number;
   description: string;
   humidity: number;
   max: number;
@@ -34,6 +35,7 @@ export interface WeatherIcons {
 export type SunRiseCardType = {
   sunrise: number;
   sunset: number;
+  timezone: number;
 };
 
 export type DataInfoContainerType = {

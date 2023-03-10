@@ -12,6 +12,7 @@ export const DataCard: FC<DataCardType> = ({
   max,
   sunrise,
   sunset,
+  timezone,
 }) => {
   return (
     <div className="data">
@@ -22,7 +23,11 @@ export const DataCard: FC<DataCardType> = ({
         description={description}
       />
       <TimeWeatherCardContainer />
-      <SunRiseCardContainer sunrise={sunrise} sunset={sunset} />
+      <SunRiseCardContainer
+        timezone={timezone}
+        sunrise={sunrise}
+        sunset={sunset}
+      />
     </div>
   );
 };

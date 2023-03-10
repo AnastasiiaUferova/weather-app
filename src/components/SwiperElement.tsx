@@ -52,6 +52,7 @@ export const SwiperElement: FC<GeneralCardType> = ({
             sunrise={sunrise}
             description={description}
             humidity={humidity}
+            timezone={timezone}
           />
         </SwiperSlide>
         <SwiperSlide>

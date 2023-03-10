@@ -32,6 +32,7 @@ export const Main: FC<GeneralCardType> = ({
         sunrise={sunrise}
         description={description}
         humidity={humidity}
+        timezone={timezone}
       />
       <PhraseCard />
     </div>

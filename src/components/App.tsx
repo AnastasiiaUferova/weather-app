@@ -15,6 +15,7 @@ function App() {
   const [city, setCity] = useState<string | null>("");
   const [isSearching, setIsSearching] = useState<boolean | null>(false);
   const [geo, setGeo] = useState<any>(null);
+  const [time, setTime] = useState<any>(null);
 
   const { showMain } = UseResize(1100);
   const { geoLoading, geoError, geoData } = UseGeoLocation();
@@ -29,7 +30,7 @@ function App() {
       console.log(error);
     }
   };
-  // http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat={lat}&lon={lon}&appid={API key} air pollution
+
   useEffect(() => {
     getLocationData().then(() => {
       axios
@@ -47,6 +48,23 @@ function App() {
         });
     });
   }, []);
+
+  /*useEffect(() => {
+
+  getLocationData().then(() => {
+    axios
+    .get(
+      ` https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${geo?.latitude}&lon=${geo?.longitude}&appid=431e7a61c4a3556cbf4ffbf1a97345f3&units=metric`
+    ) //find out the city by coordinates
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+
+}, [])*/
 
   const {
     data: searchData,
@@ -99,43 +117,70 @@ function App() {
 
 export default App;
 
-/*  setMainData(mainData => ({
-          ...mainData,
-          ...cityData
-        }));
-        
-         if (loading) return <h1>LOADING...</h1>;
-  if (error) console.log(error);
-        
-         <div style={{width:"400px", height:"400px",background: "red", color: "white"}}>
-{data?.main.temp}
-</div>
+/*  
+ import { useState, useEffect } from 'react';
+import useFetch from './useFetch';
+
+function App() {
+  const [data, setData] = useState([]);
+
+  const urls = ['https://api.example.com/data1', 'https://api.example.com/data2'];
+
+  const fetchHooks = urls.map(url => useFetch(url));
+
+  useEffect(() => {
+    Promise.all(fetchHooks)
+      .then(responses => Promise.all(responses.map(res => res.json())))
+      .then(dataArray => setData(dataArray))
+      .catch(error => console.log(error));
+  }, [urls]);
+
+  return (
+    <div>
+      {data.map((dataItem, index) => (
+        <p key={index}>{JSON.stringify(dataItem)}</p>
+      ))}
+    </div>
+  );
+}
+
+export default App;
 
 
+import { useState, useEffect } from 'react';
+import useFetch from './useFetch';
 
+function App() {
+  const [data, setData] = useState([]);
 
+  const urls = [
+    'https://api.example.com/data1',
+    'https://api.example.com/data2',
+    'https://api.example.com/data3'
+  ];
 
+  const fetchData = async () => {
+    const promises = urls.map(url => useFetch(url));
+    const results = await Promise.all(promises);
 
+    const data = results.map(result => result.data);
+    setData(data);
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
 
- useEffect(() => {
-    if (!geoLoading) {
-      cityRefetch();
-      axios
-        .get(
-          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${geoData.latitude}&longitude=${geoData.longitude}
-      &localityLanguage=en`
-        ) //find out the city by coordinates
-        .then((res) => {
-          setIsSearching(false);
-          setCity(res.data.city);
-          cityRefetch();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [geoLoading]);
+  return (
+    <div>
+      {data.map((item, index) => (
+        <p key={index}>{JSON.stringify(item)}</p>
+      ))}
+    </div>
+  );
+}
+
+export default App;
         
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
